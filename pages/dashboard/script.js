@@ -46,11 +46,12 @@ const createNotes = (cards) => {
     let Card = document.createElement("div");
     Card.classList.add("card");
     Card.id = id;
-    Card.innerHTML = `<div class="card-header" >
+    Card.innerHTML = `<div class="card-header">
           <div class="card-heading">${heading}</div>
-          <div class="edit-note">
-            <img class="image" src="./../../assets/editNote.svg" />
-          </div>
+          <a href="../updateNotes/index.html?noteID=${id}"
+            <div class="edit-note">
+              <img class="image" src="./../../assets/editNote.svg" /></div
+          ></a>
         </div>
         <div class="card-content">
           ${content}
