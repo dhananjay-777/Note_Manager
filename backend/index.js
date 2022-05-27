@@ -2,6 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const authRoutes = require("./routes/auth");
+const noteRoutes = require("./routes/notes");
+const { verifyToken } = require("./middleware/authMiddleware");
 const app = express();
 const client = require("./configs/db");
 app.use(cors());
@@ -14,7 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", authRoutes);
-
+app.use("/notes", verifyToken, noteRoutes);
 client.connect((err) => {
   if (err) {
     console.error("connection error", err.stack);

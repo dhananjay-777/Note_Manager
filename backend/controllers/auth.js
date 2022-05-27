@@ -65,7 +65,7 @@ exports.signIn = (req, res) => {
       if (isValid == 0) {
         // console.log(data);
         res.status(400).json({
-          error: "User does exits, You have to Sign up",
+          error: "User does not exits, You have to Sign up",
         });
       } else {
         //console.log(data.rows[0].password);
