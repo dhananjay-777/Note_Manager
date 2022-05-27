@@ -24,6 +24,7 @@ exports.verifyToken = (req, res, next) => {
             });
           } else {
             req.email = email;
+            // console.log(req.email);
             next();
           }
         })
