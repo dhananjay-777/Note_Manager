@@ -12,26 +12,18 @@ app.use(express.json());
 const port = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
-  client.connect((err) => {
-    if (err) {
-      res.status(200).send("error");
-      console.error("connection error", err.stack);
-    } else {
-      console.log("connected to db");
-      res.status(200).send("Server is up and running");
-    }
-  });
+  res.status(200).send("Server is up and running");
 });
 
 app.use("/auth", authRoutes);
 app.use("/notes", verifyToken, noteRoutes);
-// client.connect((err) => {
-//   if (err) {
-//     console.error("connection error", err.stack);
-//   } else {
-//     console.log("connected to db");
-//   }
-// });
+client.connect((err) => {
+  if (err) {
+    console.error("connection error", err.stack);
+  } else {
+    console.log("connected to db");
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

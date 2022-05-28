@@ -25,7 +25,7 @@ exports.signUp = (req, res) => {
               {
                 email: email,
               },
-              process.env.SECRET_KEY
+              `This is my super secret key `
             );
             client
               .query(
@@ -80,7 +80,7 @@ exports.signIn = (req, res) => {
               {
                 email: email,
               },
-              process.env.SECRET_KEY
+              `This is my super secret key `
             );
             res.status(200).json({
               message: "Sign in successful",
