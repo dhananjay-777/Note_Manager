@@ -90,7 +90,7 @@ main {
   top: -100px;
 }
 
-.circle2 {
+/* .circle2 {
   z-index: -2;
   background-color: white;
   height: 400px;
@@ -101,4 +101,32 @@ main {
   position: absolute;
   right: -60px;
   bottom: -80px;
+} */
+
+@media only screen and (max-width: 800px) {
+  main,
+  nav {
+    padding: 10px 15px;
+  }
+
+  main {
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .left-section {
+    width: 100%;
+    align-items: center;
+  }
+  .right-section {
+    width: 80%;
+    align-items: center;
+  }
+
+  .circle1 {
+    height: 300px;
+    width: 300px;
+  }
 }
