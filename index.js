@@ -6,7 +6,11 @@ const noteRoutes = require("./routes/notes");
 const { verifyToken } = require("./middleware/authMiddleware");
 const app = express();
 const client = require("./configs/db");
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use(express.json());
 
 const port = process.env.PORT || 5000;

@@ -1,6 +1,6 @@
 const body = document.querySelector("body");
 
-const apiUrl = "http://localhost:5000";
+const apiUrl = "https://note-manager-dhananjay.herokuapp.com";
 
 window.addEventListener("load", () => {
   body.classList.add("visible");
