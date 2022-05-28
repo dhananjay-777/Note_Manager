@@ -1,6 +1,6 @@
 const body = document.querySelector("body");
 
-const apiUrl = "https://aasf-final-project-backend.herokuapp.com";
+const apiUrl = "http://localhost:5000";
 
 window.addEventListener("load", () => {
   body.classList.add("visible");
@@ -30,7 +30,7 @@ signInForm.addEventListener("submit", (event) => {
 
       if (token) {
         localStorage.setItem("jwt", token);
-        location.href = "/pages/dashboard/dashboard.html";
+        location.href = "../dashboard/index.html";
       } else {
         alert("SignIn Again");
       }
@@ -65,13 +65,15 @@ signUpForm.addEventListener("submit", (event) => {
     },
     body: JSON.stringify({ name, email, password }),
   })
-    .then((res) => res.json())
+    .then((res) => {
+      return res.json();
+    })
     .then((data) => {
       const { token } = data;
 
       if (token) {
         localStorage.setItem("jwt", token);
-        location.href = "/pages/dashboard/dashboard.html";
+        location.href = "../dashboard/index.html";
       } else {
         alert("SignUp Again");
       }
