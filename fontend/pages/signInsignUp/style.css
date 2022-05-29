@@ -55,10 +55,11 @@ body {
 } */
 
 .form-container {
-  width: 800px;
+  /* background-color: red; */
+  width: 60%;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .signin-form,
@@ -75,7 +76,7 @@ body {
 }
 
 .form-heading {
-  /* font-weight: bold; */
+  font-weight: bold;
   font-size: 28px;
 }
 
@@ -93,7 +94,7 @@ form > *:last-child {
 form > input {
   border: none;
   height: 10%;
-  width: 250px;
+  max-width: 250px;
   border-radius: 15px;
   color: black;
   padding: 10px;
@@ -125,13 +126,22 @@ form > button:active {
   .form-container {
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: space-between;
+
+    width: 60%;
     height: 80%;
   }
-  .signin-form,
-  .signup-form {
-    margin: 10px;
+  .sign-in-form-container {
+    padding: 10px;
+    height: 30%;
+  }
+  .sign-up-form-container {
+    padding: 10px;
+    height: 60%;
+  }
+
+  form > * {
+    margin: 5px 0;
   }
 
   .circle1 {

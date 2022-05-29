@@ -25,14 +25,20 @@ const createNotes = (cards) => {
     Card.id = noteid;
     Card.innerHTML = `<div class="card-header">
           <div class="card-heading">${heading}</div>
-          <a href="../updateNotes/index.html?noteId=${noteid}"
+         <div class="options">
+            <a href="../updateNotes/index.html?noteID=${noteid}"
             <div class="edit-note">
               <img class="image" src="./../../assets/editNote.svg" /></div
           ></a>
+          
+            <div class="delete-note" >
+              <img class="image delet" id="${noteid}" src="./../../assets/delete.svg" /></div>
+         </div>
         </div>
         <div class="card-content">
-          ${content}
-        </div>`;
+         ${content}
+        </div>
+      </div>`;
 
     cardContainer.appendChild(Card);
   });
@@ -62,5 +68,36 @@ window.addEventListener("load", () => {
       });
   } else {
     location.href = "../../index.html";
+  }
+});
+
+body.addEventListener("click", (event) => {
+  console.log(event.target);
+  if (event.target.classList.contains("delet")) {
+    const id = event.target.id;
+    if (token) {
+      fetch(`${apiUrl}/notes/deleteNote/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: token,
+        },
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          document.location.reload(true);
+          // const cardData = data.data;
+          // // console.log(cardData);
+          // createNotes(cardData);
+        })
+        .catch((err) => {
+          alert("Error while fetching card");
+          console.log(err);
+        });
+    } else {
+      location.href = "../../index.html";
+    }
   }
 });
