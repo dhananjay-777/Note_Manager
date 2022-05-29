@@ -13,7 +13,7 @@ createNoteBtn.addEventListener("click", () => {
 
 logout.addEventListener("click", () => {
   localStorage.setItem("jwt", "");
-  location.href = "../../index.html";
+  location.href = "../../../index.html";
 });
 
 const createNotes = (cards) => {
@@ -67,12 +67,12 @@ window.addEventListener("load", () => {
         console.log(err);
       });
   } else {
-    location.href = "../../index.html";
+    location.href = "../../../index.html";
   }
 });
 
-body.addEventListener("click", (event) => {
-  console.log(event.target);
+cardContainer.addEventListener("click", (event) => {
+  //console.log(event.target);
   if (event.target.classList.contains("delet")) {
     const id = event.target.id;
     if (token) {

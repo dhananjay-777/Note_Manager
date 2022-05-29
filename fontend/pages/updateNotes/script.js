@@ -35,6 +35,6 @@ createNoteBtn.addEventListener("click", () => {
         console.log(err);
       });
   } else {
-    location.href = "../../index.html";
+    location.href = "../../../index.html";
   }
 });
