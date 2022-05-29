@@ -119,6 +119,9 @@ nav {
 .card-heading::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
 }
+.card-container::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
 
 @media only screen and (max-width: 800px) {
   nav {
